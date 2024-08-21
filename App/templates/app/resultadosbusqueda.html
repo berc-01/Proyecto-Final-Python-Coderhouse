@@ -1,0 +1,20 @@
+{% extends "app/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <p>Estamos buscando procesadores de la marca: {{ marca }}</p>
+
+    {% if procesadores %}
+    <ul>
+    {% for procesador in procesadores %}
+        <!-- <li>{{ procesador.marca }}</li> (Esto no sería necesario, ya que la marca ya se está mostrando en el <p> de arriba.) --> 
+        <li>{{ procesador.modelo }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+
+{% endblock %}
