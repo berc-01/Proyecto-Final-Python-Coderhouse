@@ -1,6 +1,11 @@
 # Tercera-pre-entrega-Rozas
 Pre-entrega número 3 de Benjamín Eduardo Rozas Carrasco
 
+¿Cómo comenzar?
+1. Abrir terminal dentro del proyecto django.
+2. Activar el entorno ya sea con 'entorno\Scripts\activate' o 'source entorno/Scripts/activate'.
+3. Correr el servidor local con 'python manage.py runserver'.
+
 ¿Dónde están las funcionalidades?
 Al abrir el navegador con '127.0.0.1:8000/App/inicio' se puede navegar al hacer click en la esquina superior derecha.
 
