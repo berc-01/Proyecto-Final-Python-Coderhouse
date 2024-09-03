@@ -12,15 +12,13 @@
 
     {% block contenidoQueCambia %}
 
+    <h1>Borrar memoria RAM</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        ¿Seguro que quieres borrar la memoria RAM {{ram.marca}} {{ram.modelo}}?
+        <input type="submit" value="Eliminar">
+    </form>
 
-        <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-        <h1>Puedes buscar una marca de procesador:</h1>
-        <form action="/App/buscar/" method="GET">
-            <input type="text" name="marca" id="marca">
-            <input type="submit" value="Buscar">
-        </form>
-
-  
     {% endblock %}
 </body>
 </html>

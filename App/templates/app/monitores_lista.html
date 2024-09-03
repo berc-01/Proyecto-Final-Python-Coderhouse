@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "app/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+        <h1>Listado de monitores</h1>
+        <a href="{% url 'AgregarMonitor' %}">Agregar un monitor</a>
+        {% for monitor in monitores %}
+            <li>Marca: {{monitor.marca}} - Modelo: {{monitor.modelo}}
+                <p>
+                    <a href="{% url 'DetalleMonitor' monitor.pk %}">Detalle</a>
+                    <a href="{% url 'EditarMonitor' monitor.pk %}">Editar</a>
+                    <a href="{% url 'BorrarMonitor' monitor.pk %}">Borrar</a>
+                </p>
+            </li>
+        {% endfor %}
+    {% endblock %}
+</body>
+</html>

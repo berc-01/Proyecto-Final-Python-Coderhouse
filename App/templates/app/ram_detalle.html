@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "app/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+        <h1>Detalle de la memoria RAM</h1>
+        <p>Marca: <i>{{ram.marca}}</i></p>
+        <p>Modelo: <i>{{ram.modelo}}</i></p>
+        <p>Tipo: <i>{{ram.tipo}}</i></p>
+        <p>Capacidad: <i>{{ram.capacidad}}</i></p>
+        <p>Velocidad: <i>{{ram.velocidad}}</i></p>
+        <p>Precio: <i>{{ram.precio}}</i></p>
+        <p>
+            <a href="{% url 'ListaRam' %}">Regresar</a>
+        </p>
+    {% endblock %}
+</body>
+</html>

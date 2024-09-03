@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "app/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+        <h1>Listado de tarjetas de vídeo</h1>
+        <a href="{% url 'AgregarTarjeta' %}">Agregar una tarjeta de vídeo</a>
+        {% for tarjeta in tarjetas %}
+            <li>Marca: {{tarjeta.marca}} - Modelo: {{tarjeta.modelo}}
+                <p>
+                    <a href="{% url 'DetalleTarjeta' tarjeta.pk %}">Detalle</a>
+                    <a href="{% url 'EditarTarjeta' tarjeta.pk %}">Editar</a>
+                    <a href="{% url 'BorrarTarjeta' tarjeta.pk %}">Borrar</a>
+                </p>
+            </li>
+        {% endfor %}
+    {% endblock %}
+</body>
+</html>

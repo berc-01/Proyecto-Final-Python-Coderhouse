@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "app/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+        <h1>Detalle del cooler</h1>
+        <p>Marca: <i>{{coolers.marca}}</i></p>
+        <p>Modelo: <i>{{coolers.modelo}}</i></p>
+        <p>Tipo: <i>{{coolers.tipo}}</i></p>
+        <p>Altura: <i>{{coolers.altura}}</i></p>
+        <p>Ventilador: <i>{{coolers.ventilador}}</i></p>
+        <p>Precio: <i>{{coolers.precio}}</i></p>
+        <p>
+            <a href="{% url 'ListaCoolers' %}">Regresar</a>
+        </p>
+    {% endblock %}
+</body>
+</html>

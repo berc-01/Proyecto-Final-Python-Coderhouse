@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "app/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+        <h1>Detalle de la tarjeta de vídeo</h1>
+        <p>Marca: <i>{{tarjetas.marca}}</i></p>
+        <p>Modelo: <i>{{tarjetas.modelo}}</i></p>
+        <p>Serie: <i>{{tarjetas.serie}}</i></p>
+        <p>Memoria: <i>{{tarjetas.memoria}}</i></p>
+        <p>Largo: <i>{{tarjetas.largo}}</i></p>
+        <p>Precio: <i>{{tarjetas.precio}}</i></p>
+        <p>
+            <a href="{% url 'ListaTarjetas' %}">Regresar</a>
+        </p>
+    {% endblock %}
+</body>
+</html>

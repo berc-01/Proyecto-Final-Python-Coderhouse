@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "app/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+        <h1>Detalle del procesador</h1>
+        <p>Marca: <i>{{procesadores.marca}}</i></p>
+        <p>Modelo: <i>{{procesadores.modelo}}</i></p>
+        <p>Núcleos: <i>{{procesadores.nucleos}}</i></p>
+        <p>Hilos: <i>{{procesadores.hilos}}</i></p>
+        <p>Frecuencia: <i>{{procesadores.frecuencia}}</i></p>
+        <p>Precio: <i>{{procesadores.precio}}</i></p>
+        <p>
+            <a href="{% url 'ListaProcesadores' %}">Regresar</a>
+        </p>
+    {% endblock %}
+</body>
+</html>

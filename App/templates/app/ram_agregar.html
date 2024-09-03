@@ -11,16 +11,12 @@
     {% load static %}
 
     {% block contenidoQueCambia %}
-
-
-        <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-        <h1>Puedes buscar una marca de procesador:</h1>
-        <form action="/App/buscar/" method="GET">
-            <input type="text" name="marca" id="marca">
-            <input type="submit" value="Buscar">
+        <h1>Agregar memoria RAM</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Agregar">
         </form>
-
-  
     {% endblock %}
 </body>
 </html>
