@@ -21,12 +21,41 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Registrarse' %}">Usuarios</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'ListaProcesadores' %}">Procesadores</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'ListaMonitores' %}">Monitores</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'ListaTarjetas' %}">Tarjetas/GPU</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'ListaRam' %}">RAM</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'ListaCoolers' %}">Coolers</a></li>
+                        {# DROPDOWN PARA LA CUENTA DE USUARIO #}
+                        {% if request.user.is_authenticated %}
+
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ request.user.username }}
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li>
+                                        <!-- Este form es para generar un método POST al cerrar sesión, de lo contrario se genera un método GET y salta un error. -->
+                                        <form action="{% url 'Logout' %}" method="post" style="display: inline;">
+                                            {% csrf_token %}
+                                            <button type="submit" class="dropdown-item">Cerrar sesión</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        {% else %}
+
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Cuenta
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="{% url 'Login' %}">Iniciar Sesión</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'Registro' %}">Crear cuenta</a></li>
+                                </ul>
+                            </div>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

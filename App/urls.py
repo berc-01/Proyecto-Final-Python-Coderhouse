@@ -4,8 +4,6 @@ from App import views #Importamos las views de la aplicación (App).
 # Create your views here.
 urlpatterns = [
     path('inicio/', views.inicio, name='inicio'),
-    path('buscar/', views.buscar),
-    path('registrarse/', views.usuariosFormulario, name='Registrarse'),
     path('procesadores/lista', views.ProcesadorListView.as_view(), name='ListaProcesadores'),
     path('procesadores/agregar', views.ProcesadorCreateView.as_view(), name='AgregarProcesador'),
     path('procesadores/<pk>', views.ProcesadorDetailView.as_view(), name='DetalleProcesador'),
@@ -31,6 +29,8 @@ urlpatterns = [
     path('ram/<pk>', views.RamDetailView.as_view(), name='DetalleRam'),
     path('ram/<pk>/editar', views.RamUpdateView.as_view(), name='EditarRam'),
     path('ram/<pk>/borrar', views.RamDeleteView.as_view(), name='BorrarRam'),
+    # path('registrarse/', views.usuariosFormulario, name='Registrarse'),
+    # path('buscar/', views.buscar),
     # path('agregarprocesador/', views.procesadorFormulario, name='AgregarProcesadores'),
     # path('agregarmonitor/', views.monitorFormulario, name='AgregarMonitores'),
     # path('agregartarjeta/', views.tarjetaFormulario, name='AgregarTarjetas'),
