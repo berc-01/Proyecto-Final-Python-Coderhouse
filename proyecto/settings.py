@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -124,4 +124,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#Indica cual es la URL para iniciar sesión.
 LOGIN_URL = "/users/login/"
+
+#Indica cual es la URL de la carpeta de imagenes.
+MEDIA_URL = "/media/"
+#Indica cual es el PATH.
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
