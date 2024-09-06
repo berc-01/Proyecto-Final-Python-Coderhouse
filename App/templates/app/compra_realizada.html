@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar memoria RAM</title>
+    <title>Document</title>
 </head>
 <body>
     {% extends "app/padre.html" %}
@@ -12,12 +12,15 @@
 
     {% block contenidoQueCambia %}
     <div class="text-center"> <!-- Esto es para centrar el texto -->
-        <h1>Agregar memoria RAM</h1>
-        <form action="" method="POST" enctype="multipart/form-data"> <!-- El enctype nos va a permitir subir el archivo. -->
-            {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" value="Agregar">
-        </form>
+        <h1>¡Compra realizada!</h1>
+        <br>
+        <p>Tu compra ha sido realizada.</p>
+        <br>
+        <br>
+        <h4>¡Gracias por tu compra!</h4>
+        <p>
+            <a href="{% url 'inicio' %}">Regresar</a>
+        </p>
     </div>
     {% endblock %}
 </body>

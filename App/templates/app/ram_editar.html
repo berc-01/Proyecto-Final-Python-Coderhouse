@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editar memoria RAM</title>
 </head>
 <body>
     {% extends "app/padre.html" %}
@@ -11,12 +11,14 @@
     {% load static %}
 
     {% block contenidoQueCambia %}
+    <div class="text-center"> <!-- Esto es para centrar el texto -->
         <h1>Editar memoria RAM</h1>
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data"> <!-- El enctype nos va a permitir subir el archivo. -->
             {% csrf_token %}
             {{form.as_p}}
             <input type="submit" value="Editar">
         </form>
+    </div>
     {% endblock %}
 </body>
 </html>

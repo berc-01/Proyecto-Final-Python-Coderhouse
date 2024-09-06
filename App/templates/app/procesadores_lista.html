@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista procesadores</title>
 </head>
 <body>
     {% extends "app/padre.html" %}
@@ -11,17 +11,31 @@
     {% load static %}
 
     {% block contenidoQueCambia %}
+    <div class="text-center"> <!-- Esto es para centrar el texto -->
         <h1>Listado de procesadores</h1>
-        <a href="{% url 'AgregarProcesador' %}">Agregar un procesador</a>
+        {% if request.user.is_staff %}  <!-- Para que clientes no accedan al link -->
+            <a href="{% url 'AgregarProcesador' %}">Agregar un procesador</a>
+        {% endif %}
+        <br>
         {% for procesador in procesadores %}
+            {% if procesador.imagen %}
+                <img src="{{ procesador.imagen.url }}" alt="" style="height: 200px; width: 200px;">
+            {% else %}
+                <!-- Mensaje de "no disponible" si no se encuentra un imagen -->
+                <img src="" alt="Imagen no disponible" style="height: 50px; width: 50px;">
+            {% endif %}
             <li>Marca: {{procesador.marca}} - Modelo: {{procesador.modelo}}
                 <p>
                     <a href="{% url 'DetalleProcesador' procesador.pk %}">Detalle</a>
-                    <a href="{% url 'EditarProcesador' procesador.pk %}">Editar</a>
-                    <a href="{% url 'BorrarProcesador' procesador.pk %}">Borrar</a>
+                    {% if request.user.is_staff %} <!-- Para que clientes no accedan al link -->
+                        <a href="{% url 'EditarProcesador' procesador.pk %}">Editar</a>
+                        <a href="{% url 'BorrarProcesador' procesador.pk %}">Borrar</a>
+                    {% endif %}
+                    <a href="{% url 'CompraRealizada' %}">Comprar</a>
                 </p>
             </li>
         {% endfor %}
+    </div>
     {% endblock %}
 </body>
 </html>

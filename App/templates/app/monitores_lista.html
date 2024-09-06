@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de monitores</title>
 </head>
 <body>
     {% extends "app/padre.html" %}
@@ -11,17 +11,31 @@
     {% load static %}
 
     {% block contenidoQueCambia %}
+    <div class="text-center"> <!-- Esto es para centrar el texto -->
         <h1>Listado de monitores</h1>
-        <a href="{% url 'AgregarMonitor' %}">Agregar un monitor</a>
+        {% if request.user.is_staff %} <!-- Para que clientes no accedan al link -->
+            <a href="{% url 'AgregarMonitor' %}">Agregar un monitor</a>
+        {% endif %}
+        <br>
         {% for monitor in monitores %}
+            {% if monitor.imagen %}
+                <img src="{{ monitor.imagen.url }}" alt="" style="height: 200px; width: 200px;">
+            {% else %}
+            <!-- Mensaje de "no disponible" si no se encuentra un imagen -->
+                <img src="" alt="Imagen no disponible" style="height: 50px; width: 50px;">
+            {% endif %}
             <li>Marca: {{monitor.marca}} - Modelo: {{monitor.modelo}}
                 <p>
                     <a href="{% url 'DetalleMonitor' monitor.pk %}">Detalle</a>
-                    <a href="{% url 'EditarMonitor' monitor.pk %}">Editar</a>
-                    <a href="{% url 'BorrarMonitor' monitor.pk %}">Borrar</a>
+                    {% if request.user.is_staff %} <!-- Para que clientes no accedan al link -->
+                        <a href="{% url 'EditarMonitor' monitor.pk %}">Editar</a>
+                        <a href="{% url 'BorrarMonitor' monitor.pk %}">Borrar</a>
+                    {% endif %}
+                    <a href="{% url 'CompraRealizada' %}">Comprar</a>
                 </p>
             </li>
         {% endfor %}
+    </div>
     {% endblock %}
 </body>
 </html>

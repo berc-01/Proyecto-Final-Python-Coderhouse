@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Borrar un procesador</title>
 </head>
 <body>
     {% extends "app/padre.html" %}
@@ -11,14 +11,14 @@
     {% load static %}
 
     {% block contenidoQueCambia %}
-
+    <div class="text-center"> <!-- Esto es para centrar el texto -->
     <h1>Borrar procesador</h1>
     <form action="" method="POST">
         {% csrf_token %}
         ¿Seguro que quieres borrar el procesador {{procesadores.marca}} {{procesadores.modelo}}?
         <input type="submit" value="Eliminar">
     </form>
-
+    </div>
     {% endblock %}
 </body>
 </html>

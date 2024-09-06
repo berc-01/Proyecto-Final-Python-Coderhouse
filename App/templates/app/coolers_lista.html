@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de coolers</title>
 </head>
 <body>
     {% extends "app/padre.html" %}
@@ -11,17 +11,31 @@
     {% load static %}
 
     {% block contenidoQueCambia %}
+    <div class="text-center"> <!-- Esto es para centrar el texto -->
         <h1>Listado de coolers</h1>
-        <a href="{% url 'AgregarCooler' %}">Agregar un cooler</a>
+        {% if request.user.is_staff %} <!-- Para que clientes no accedan al link -->
+            <a href="{% url 'AgregarCooler' %}">Agregar un cooler</a>
+        {% endif %}
+        <br>
         {% for cooler in coolers %}
+            {% if cooler.imagen %}
+            <img src="{{ cooler.imagen.url }}" alt="" style="height: 200px; width: 200px;">
+            {% else %}
+        <!-- Mensaje de "no disponible" si no se encuentra un imagen -->
+            <img src="" alt="Imagen no disponible" style="height: 50px; width: 50px;">
+            {% endif %}
             <li>Marca: {{cooler.marca}} - Modelo: {{cooler.modelo}}
                 <p>
                     <a href="{% url 'DetalleCooler' cooler.pk %}">Detalle</a>
-                    <a href="{% url 'EditarCooler' cooler.pk %}">Editar</a>
-                    <a href="{% url 'BorrarCooler' cooler.pk %}">Borrar</a>
+                    {% if request.user.is_staff %} <!-- Para que clientes no accedan al link -->
+                        <a href="{% url 'EditarCooler' cooler.pk %}">Editar</a>
+                        <a href="{% url 'BorrarCooler' cooler.pk %}">Borrar</a>
+                    {% endif %}
+                    <a href="{% url 'CompraRealizada' %}">Comprar</a>
                 </p>
             </li>
         {% endfor %}
+    </div>
     {% endblock %}
 </body>
 </html>

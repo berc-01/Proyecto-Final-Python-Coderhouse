@@ -29,6 +29,7 @@ urlpatterns = [
     path('ram/<pk>', views.RamDetailView.as_view(), name='DetalleRam'),
     path('ram/<pk>/editar', views.RamUpdateView.as_view(), name='EditarRam'),
     path('ram/<pk>/borrar', views.RamDeleteView.as_view(), name='BorrarRam'),
+    path('comprarealizada/', views.compra_realizada ,name='CompraRealizada'),
     # path('registrarse/', views.usuariosFormulario, name='Registrarse'),
     # path('buscar/', views.buscar),
     # path('agregarprocesador/', views.procesadorFormulario, name='AgregarProcesadores'),

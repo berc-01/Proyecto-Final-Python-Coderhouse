@@ -13,7 +13,7 @@
     {% block title %} Editar usuario {% endblock title %}
 
     {% block contenidoQueCambia %}
-
+    <div class="d-flex justify-content-center">
         <form action="" method="POST" enctype="multipart/form-data"> <!-- El enctype nos va a permitir subir el archivo. -->
 
             {% csrf_token %}
@@ -29,7 +29,7 @@
             <input type="submit" value="Actualizar usuario">
 
         </form>
-
+    </div>
     {% endblock %}
 </body>
 </html>
