@@ -13,10 +13,18 @@
     {% block contenidoQueCambia %}
     <div class="text-center"> <!-- Esto es para centrar el texto -->
         <h1>¡Bienvenido a Non-Stop Gaming!</h1>
+        <br>
         <p>¡Bienvenido a Non-Stop Gaming!, la tienda para todos los componentes necesarios para armar y actualizar tu PC!</p>
+        <br>
         <p>En nuestra tienda, encontrarás una amplia gama de <strong>procesadores</strong>, <strong>tarjetas gráficas</strong>, <strong>coolers</strong>, <strong>memoria RAM</strong> y <strong>monitores</strong>. Hay una amplia cantidad de marcas con las últimas tecnologías para una mejor experiencia.</p>
+        <br>
         <p>Ya seas un entusiasta del gaming o simplemente busques mejorar el rendimiento de tu equipo, estamos aquí para ayudarte a encontrar los productos perfectos para tus necesidades. Navega por las categorías para encontrar el componente que desees.</p>
+        <br>
         <p>¡Gracias por visitarnos y esperamos que disfrutes de tu experiencia de compra!</p>
+        <br><br>
+        {% if request.user.is_staff %} <!-- Para que clientes no vean el gif -->
+            <img src="{% static 'app/carlitox.gif' %}" alt="" style="height: 200px; width: 200px;">
+        {% endif %}
     </div>
     {% endblock %}
 </body>

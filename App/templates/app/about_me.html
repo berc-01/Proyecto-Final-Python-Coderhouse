@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de mí</title>
+</head>
+<body>
+    {% extends "app/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+        <br><br><br>
+        <div class="text-center"> <!-- Esto es para centrar el texto -->
+            <img src="{% static 'app/aboutme.png' %}" alt="" style="height: 200px; width: 200px;">
+            <br><br>
+            <h1>Benjamín Eduardo Rozas Carrasco</h1>
+        </div>
+        <br><br>
+        <p style=" margin: 0 auto; max-width: 1000px;">Hola! Soy Benjamín y este es mi proyecto final de Coderhouse para la obtención del certificado en Python. 
+        Tengo 22 años y este es mi primer contacto con la programación. Soy licenciado en Lingüística y Literatura Inglesas de la Universidad de Chile y estoy estudiando programación
+        para poder forjar una carrera como un lingüista computacional.
+        </p>
+        <br><br>
+        <p style=" margin: 0 auto; max-width: 1000px;">Este proyecto consiste en una tienda online, donde el dueño de la tienda (admin) puede agregar productos para PC como tarjetas de vídeo, memorias RAM, procesadores, etc.
+        Cada producto lleva un título, descripción, fecha de publicación y especificaciones, para simular un estilo blog. Además, tiene una opción para comprar los productos que están siendo visualizados.
+        </p>
+
+    {% endblock %}
+</body>
+</html>

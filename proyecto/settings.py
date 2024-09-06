@@ -125,7 +125,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Indica cual es la URL para iniciar sesión.
-LOGIN_URL = "/users/login/"
+LOGIN_URL = "/accounts/login/"
 
 #Indica cual es la URL de la carpeta de imagenes.
 MEDIA_URL = "/media/"

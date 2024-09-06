@@ -11,6 +11,17 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'app/css/styles.css' %}" rel="stylesheet" />
+        <style>
+            body {
+                background-image: url("{% static '/app/fondo.jpg' %}");
+                background-size: cover; 
+                background-repeat: no-repeat; 
+            }
+    
+            .navbar {
+                background-color: rgba(0, 0, 0, 0.7); 
+            }
+        </style>
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -21,11 +32,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'About' %}">Acerca de mí</a></li> 
                         <li class="nav-item"><a class="nav-link" href="{% url 'ListaProcesadores' %}">Procesadores</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'ListaMonitores' %}">Monitores</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'ListaTarjetas' %}">Tarjetas/GPU</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'ListaRam' %}">RAM</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'ListaCoolers' %}">Coolers</a></li>
+                        {% if request.user.is_staff %} <!-- Para que clientes no accedan al link -->
+                            <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">Admin</a></li>
+                        {% endif %}
                         {# DROPDOWN PARA LA CUENTA DE USUARIO #}
                         {% if request.user.is_authenticated %}
                             <img src="{{request.user.imagen.imagen.url}}" alt="" style="height: 50px;width: 50px;">

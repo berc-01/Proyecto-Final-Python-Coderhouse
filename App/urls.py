@@ -3,7 +3,8 @@ from App import views #Importamos las views de la aplicación (App).
 
 # Create your views here.
 urlpatterns = [
-    path('inicio/', views.inicio, name='inicio'),
+    path('', views.inicio, name='inicio'),
+    path('about/', views.about_me, name='About'),
     path('procesadores/lista', views.ProcesadorListView.as_view(), name='ListaProcesadores'),
     path('procesadores/agregar', views.ProcesadorCreateView.as_view(), name='AgregarProcesador'),
     path('procesadores/<pk>', views.ProcesadorDetailView.as_view(), name='DetalleProcesador'),

@@ -12,6 +12,10 @@
 
     {% block contenidoQueCambia %}
     <div class="text-center"> <!-- Esto es para centrar el texto -->
+        <h1><i>{{coolers.titulo}}</i></h1>
+    </div>
+        <p style=" margin: 0 auto; max-width: 1000px;"><i>{{coolers.descripcion}}</i></p>
+    <div class="text-center"> <!-- Esto es para centrar el texto -->
         <h1>Detalle del cooler</h1>
         {% if coolers.imagen %}
                 <img src="{{ coolers.imagen.url }}" alt="" style="height: 200px; width: 200px;">
@@ -25,11 +29,12 @@
         <p>Altura: <i>{{coolers.altura}}</i></p>
         <p>Ventilador: <i>{{coolers.ventilador}}</i></p>
         <p>Precio: <i>{{coolers.precio}}</i></p>
+        <p>Fecha de publicación del producto: <i>{{coolers.fecha}}</i></p>
         <p>
-            <a href="{% url 'CompraRealizada' %}">Comprar</a>
+            <button style="background-color: greenyellow"><a href="{% url 'CompraRealizada' %}">Comprar</a></button>
         </p>
         <p>
-            <a href="{% url 'ListaCoolers' %}">Regresar</a>
+            <button style="background-color: lightcyan"><a href="{% url 'ListaCoolers' %}">Regresar</a></button>
         </p>
     </div>
     {% endblock %}

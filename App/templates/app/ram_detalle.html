@@ -12,6 +12,10 @@
 
     {% block contenidoQueCambia %}
     <div class="text-center"> <!-- Esto es para centrar el texto -->
+        <h1><i>{{ram.titulo}}</i></h1>
+    </div>
+        <p style=" margin: 0 auto; max-width: 1000px;"><i>{{ram.descripcion}}</i></p>
+    <div class="text-center"> <!-- Esto es para centrar el texto -->
         <h1>Detalle de la memoria RAM</h1>
         {% if ram.imagen %}
                 <img src="{{ ram.imagen.url }}" alt="" style="height: 200px; width: 200px;">
@@ -25,11 +29,12 @@
         <p>Capacidad: <i>{{ram.capacidad}}</i></p>
         <p>Velocidad: <i>{{ram.velocidad}}</i></p>
         <p>Precio: <i>{{ram.precio}}</i></p>
+        <p>Fecha de publicación del producto: <i>{{ram.fecha}}</i></p>
         <p>
-            <a href="{% url 'CompraRealizada' %}">Comprar</a>
+            <button style="background-color: greenyellow"><a href="{% url 'CompraRealizada' %}">Comprar</a></button>
         </p>
         <p>
-            <a href="{% url 'ListaRam' %}">Regresar</a>
+            <button style="background-color: lightcyan"><a href="{% url 'ListaRam' %}">Regresar</a></button>
         </p>
     </div>
     {% endblock %}

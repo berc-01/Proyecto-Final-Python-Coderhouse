@@ -13,10 +13,12 @@
     {% block contenidoQueCambia %}
     <div class="text-center"> <!-- Esto es para centrar el texto -->
         <h1>Listado de tarjetas de vídeo</h1>
-        {% if request.user.is_staff %} <!-- Para que clientes no accedan al link -->
-            <a href="{% url 'AgregarTarjeta' %}">Agregar una tarjeta de vídeo</a>
-        {% endif %}
         <br>
+        {% if request.user.is_staff %} <!-- Para que clientes no accedan al link -->
+            <button><a href="{% url 'AgregarTarjeta' %}">Agregar una tarjeta de vídeo</a></button>
+            
+        {% endif %}
+        <br><br><br>
         {% for tarjeta in tarjetas %}
         {% if tarjeta.imagen %}
                 <img src="{{ tarjeta.imagen.url }}" alt="" style="height: 200px; width: 200px;">
@@ -26,12 +28,12 @@
             {% endif %}
             <li>Marca: {{tarjeta.marca}} - Modelo: {{tarjeta.modelo}}
                 <p>
-                    <a href="{% url 'DetalleTarjeta' tarjeta.pk %}">Detalle</a>
+                <button style="background-color: lightcyan"><a href="{% url 'DetalleTarjeta' tarjeta.pk %}">Detalle</a></button>
                     {% if request.user.is_staff %} <!-- Para que clientes no accedan al link -->
-                        <a href="{% url 'EditarTarjeta' tarjeta.pk %}">Editar</a>
-                        <a href="{% url 'BorrarTarjeta' tarjeta.pk %}">Borrar</a>
+                        <button style="background-color: lightblue"><a href="{% url 'EditarTarjeta' tarjeta.pk %}">Editar</a></button>
+                        <button style="background-color: lightcoral"><a href="{% url 'BorrarTarjeta' tarjeta.pk %}">Borrar</a></button>
                     {% endif %}
-                    <a href="{% url 'CompraRealizada' %}">Comprar</a>
+                <button style="background-color: greenyellow"><a href="{% url 'CompraRealizada' %}">Comprar</a></button>
                 </p>
             </li>
         {% endfor %}

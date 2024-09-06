@@ -13,10 +13,11 @@
     {% block contenidoQueCambia %}
     <div class="text-center"> <!-- Esto es para centrar el texto -->
         <h1>Listado de coolers</h1>
-        {% if request.user.is_staff %} <!-- Para que clientes no accedan al link -->
-            <a href="{% url 'AgregarCooler' %}">Agregar un cooler</a>
-        {% endif %}
         <br>
+        {% if request.user.is_staff %} <!-- Para que clientes no accedan al link -->
+            <button><a href="{% url 'AgregarCooler' %}">Agregar un cooler</a></button>
+        {% endif %}
+        <br><br><br>
         {% for cooler in coolers %}
             {% if cooler.imagen %}
             <img src="{{ cooler.imagen.url }}" alt="" style="height: 200px; width: 200px;">
@@ -26,12 +27,12 @@
             {% endif %}
             <li>Marca: {{cooler.marca}} - Modelo: {{cooler.modelo}}
                 <p>
-                    <a href="{% url 'DetalleCooler' cooler.pk %}">Detalle</a>
+                    <button style="background-color: lightcyan"><a href="{% url 'DetalleCooler' cooler.pk %}">Detalle</a></button>
                     {% if request.user.is_staff %} <!-- Para que clientes no accedan al link -->
-                        <a href="{% url 'EditarCooler' cooler.pk %}">Editar</a>
-                        <a href="{% url 'BorrarCooler' cooler.pk %}">Borrar</a>
+                        <button style="background-color: lightblue"><a href="{% url 'EditarCooler' cooler.pk %}">Editar</a></button>
+                        <button style="background-color: lightcoral"><a href="{% url 'BorrarCooler' cooler.pk %}">Borrar</a></button>
                     {% endif %}
-                    <a href="{% url 'CompraRealizada' %}">Comprar</a>
+                    <button style="background-color: greenyellow"><a href="{% url 'CompraRealizada' %}">Comprar</a></button>
                 </p>
             </li>
         {% endfor %}

@@ -12,6 +12,10 @@
 
     {% block contenidoQueCambia %}
     <div class="text-center"> <!-- Esto es para centrar el texto -->
+        <h1><i>{{procesadores.titulo}}</i></h1>
+    </div>
+        <p style=" margin: 0 auto; max-width: 1000px;"><i>{{procesadores.descripcion}}</i></p>
+    <div class="text-center"> <!-- Esto es para centrar el texto -->
         <h1>Detalle del procesador</h1>
         {% if procesadores.imagen %}
                 <img src="{{ procesadores.imagen.url }}" alt="" style="height: 200px; width: 200px;">
@@ -25,11 +29,12 @@
         <p>Hilos: <i>{{procesadores.hilos}}</i></p>
         <p>Frecuencia: <i>{{procesadores.frecuencia}}</i></p>
         <p>Precio: <i>{{procesadores.precio}}</i></p>
+        <p>Fecha de publicación del producto: <i>{{procesadores.fecha}}</i></p>
         <p>
-            <a href="{% url 'CompraRealizada' %}">Comprar</a>
+            <button style="background-color: greenyellow"><a href="{% url 'CompraRealizada' %}">Comprar</a></button>
         </p>
         <p>
-            <a href="{% url 'ListaProcesadores' %}">Regresar</a>
+            <button style="background-color: lightcyan"><a href="{% url 'ListaProcesadores' %}">Regresar</a></button>
         </p>
     </div>
     {% endblock %}

@@ -12,6 +12,10 @@
 
     {% block contenidoQueCambia %}
     <div class="text-center"> <!-- Esto es para centrar el texto -->
+        <h1><i>{{tarjetas.titulo}}</i></h1>
+    </div>
+        <p style=" margin: 0 auto; max-width: 1000px;"><i>{{tarjetas.descripcion}}</i></p>
+    <div class="text-center"> <!-- Esto es para centrar el texto -->
         <h1>Detalle de la tarjeta de vídeo</h1>
         {% if tarjetas.imagen %}
                 <img src="{{ tarjetas.imagen.url }}" alt="" style="height: 200px; width: 200px;">
@@ -25,11 +29,12 @@
         <p>Memoria: <i>{{tarjetas.memoria}}</i></p>
         <p>Largo: <i>{{tarjetas.largo}}</i></p>
         <p>Precio: <i>{{tarjetas.precio}}</i></p>
+        <p>Fecha de publicación del producto: <i>{{tarjetas.fecha}}</i></p>
         <p>
-            <a href="{% url 'CompraRealizada' %}">Comprar</a>
+            <button style="background-color: greenyellow"><a href="{% url 'CompraRealizada' %}">Comprar</a></button>
         </p>
         <p>
-            <a href="{% url 'ListaTarjetas' %}">Regresar</a>
+            <button style="background-color: lightcyan"><a href="{% url 'ListaTarjetas' %}">Regresar</a></button>
         </p>
     </div>
     {% endblock %}

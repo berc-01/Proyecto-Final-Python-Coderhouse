@@ -19,6 +19,9 @@ def inicio(req):
 def compra_realizada(req):
     return render(req, 'app/compra_realizada.html')
 
+def about_me(req):
+    return render(req, 'app/about_me.html')
+
 #CRUD de Procesadores
 class ProcesadorListView(LoginRequiredMixin, ListView):
     model = Procesadores
@@ -33,13 +36,13 @@ class ProcesadorCreateView(LoginRequiredMixin, CreateView):
     model = Procesadores
     template_name = "app/procesador_agregar.html"
     success_url = reverse_lazy('ListaProcesadores')
-    fields = ['marca', 'modelo', 'nucleos', 'hilos', 'frecuencia', 'precio', 'imagen']
+    fields = ['titulo', 'descripcion', 'marca', 'modelo', 'nucleos', 'hilos', 'frecuencia', 'precio', 'imagen']
 
 class ProcesadorUpdateView(LoginRequiredMixin, UpdateView):
     model = Procesadores
     template_name = "app/procesador_editar.html"
     success_url = reverse_lazy('ListaProcesadores')
-    fields = ['marca', 'modelo', 'nucleos', 'hilos', 'frecuencia', 'precio', 'imagen']
+    fields = ['titulo', 'descripcion', 'marca', 'modelo', 'nucleos', 'hilos', 'frecuencia', 'precio', 'imagen']
 
 class ProcesadorDeleteView(LoginRequiredMixin, DeleteView):
     model = Procesadores
@@ -62,13 +65,13 @@ class MonitorCreateView(LoginRequiredMixin, CreateView):
     model = Monitores
     template_name = "app/monitor_agregar.html"
     success_url = reverse_lazy('ListaMonitores')
-    fields = ['marca', 'modelo', 'resolucion', 'pulgadas', 'hercios', 'precio', 'imagen']
+    fields = ['titulo', 'descripcion', 'marca', 'modelo', 'resolucion', 'pulgadas', 'hercios', 'precio', 'imagen']
 
 class MonitorUpdateView(LoginRequiredMixin, UpdateView):
     model = Monitores
     template_name = "app/monitor_editar.html"
     success_url = reverse_lazy('ListaMonitores')
-    fields = ['marca', 'modelo', 'resolucion', 'pulgadas', 'hercios', 'precio', 'imagen']
+    fields = ['titulo', 'descripcion', 'marca', 'modelo', 'resolucion', 'pulgadas', 'hercios', 'precio', 'imagen']
 
 class MonitorDeleteView(LoginRequiredMixin, DeleteView):
     model = Monitores
@@ -91,13 +94,13 @@ class TarjetaCreateView(LoginRequiredMixin, CreateView):
     model = Tarjetas
     template_name = "app/tarjeta_agregar.html"
     success_url = reverse_lazy('ListaTarjetas')
-    fields = ['marca', 'modelo', 'serie', 'memoria', 'largo', 'precio', 'imagen']
+    fields = ['titulo', 'descripcion', 'marca', 'modelo', 'serie', 'memoria', 'largo', 'precio', 'imagen']
 
 class TarjetaUpdateView(LoginRequiredMixin, UpdateView):
     model = Tarjetas
     template_name = "app/tarjeta_editar.html"
     success_url = reverse_lazy('ListaTarjetas')
-    fields = ['marca', 'modelo', 'serie', 'memoria', 'largo', 'precio', 'imagen']
+    fields = ['titulo', 'descripcion', 'marca', 'modelo', 'serie', 'memoria', 'largo', 'precio', 'imagen']
 
 class TarjetaDeleteView(LoginRequiredMixin, DeleteView):
     model = Tarjetas
@@ -120,13 +123,13 @@ class CoolerCreateView(LoginRequiredMixin, CreateView):
     model = Coolers
     template_name = "app/cooler_agregar.html"
     success_url = reverse_lazy('ListaCoolers')
-    fields = ['marca', 'modelo', 'tipo', 'altura', 'ventilador', 'precio', 'imagen']
+    fields = ['titulo', 'descripcion', 'marca', 'modelo', 'tipo', 'altura', 'ventilador', 'precio', 'imagen']
 
 class CoolerUpdateView(LoginRequiredMixin, UpdateView):
     model = Coolers
     template_name = "app/cooler_editar.html"
     success_url = reverse_lazy('ListaCoolers')
-    fields = ['marca', 'modelo', 'tipo', 'altura', 'ventilador', 'precio', 'imagen']
+    fields = ['titulo', 'descripcion', 'marca', 'modelo', 'tipo', 'altura', 'ventilador', 'precio', 'imagen']
 
 class CoolerDeleteView(LoginRequiredMixin, DeleteView):
     model = Coolers
@@ -149,13 +152,13 @@ class RamCreateView(LoginRequiredMixin, CreateView):
     model = Ram
     template_name = "app/ram_agregar.html"
     success_url = reverse_lazy('ListaRam')
-    fields = ['marca', 'modelo', 'tipo', 'capacidad', 'velocidad', 'precio', 'imagen']
+    fields = ['titulo', 'descripcion', 'marca', 'modelo', 'tipo', 'capacidad', 'velocidad', 'precio', 'imagen']
 
 class RamUpdateView(LoginRequiredMixin, UpdateView):
     model = Ram
     template_name = "app/ram_editar.html"
     success_url = reverse_lazy('ListaRam')
-    fields = ['marca', 'modelo', 'tipo', 'capacidad', 'velocidad', 'precio', 'imagen']
+    fields = ['titulo', 'descripcion', 'marca', 'modelo', 'tipo', 'capacidad', 'velocidad', 'precio', 'imagen']
 
 class RamDeleteView(LoginRequiredMixin, DeleteView):
     model = Ram

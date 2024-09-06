@@ -21,8 +21,8 @@ from django.conf.urls.static import static #Importamos nuestro static.
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('App/', include('App.urls')), #Incluimos las urls de la aplicación App.
-    path('users/', include('users.urls')), #Incluimos las urls de la aplicación users.
+    path('', include('App.urls')), #Incluimos las urls de la aplicación App.
+    path('', include('users.urls')), #Incluimos las urls de la aplicación users.
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) #Indicamos el camino que tiene que seguir para detectar las imagenes dentro del proyecto.
