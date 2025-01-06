@@ -1,5 +1,5 @@
 # Proyecto-Final-Coderhouse-Benjamin-Rozas
-Proyecto final de Coderhouse, certificado en Python.
+Proyecto final de Coderhouse, certificado en Python. Terminado el 7 de Septiembre del 2024.
 
 Curso: Python - Comisión: 57825
 
